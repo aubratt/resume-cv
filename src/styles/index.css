@@ -65,6 +65,16 @@ h6 {
 }
 
 /* Resume/CV App */
+@font-face {
+  font-family: "Roboto Flex";
+  src:
+    url("./src/assets/RobotoFlex-Regular.woff2") format("woff2"),
+    url("./src/assets/RobotoFlex-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-primary: #0f172a;
   --bg-surface: #1e293b;
@@ -73,9 +83,88 @@ h6 {
   --accent: #38bdf8;
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
+
+  /* Use rem for padding values */
+  /* Use class for styling */
+  /* Use class names that describe purpose */
 }
 
 body {
   background-color: var(--bg-primary);
-  font-family: sans-serif;
+  color: var(--text-primary);
+  font-family: "Roboto Flex", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  height: 3.625rem;
+}
+
+h1 {
+  all: unset;
+  font-size: 1.25rem;
+}
+
+.navbar__editor-toggle {
+  all: unset;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.navbar__editor-toggle:hover {
+  background-color: var(--bg-elevated);
+  border-radius: 8px;
+}
+
+.navbar__editor-toggle svg {
+  color: var(--text-primary);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Content Panel */
+.content-panel {
+  display: flex;
+  border-right: 1px solid var(--border);
+  min-width: 200px;
+  max-width: 350px;
+  height: calc(100vh - 3.625rem);
+  overflow-y: auto;
+}
+
+.content-panel__section {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+
+  /* TODO: Fix this having a height of 0...it looks good visually but the
+  actual height of the element is 0...make it so that the element is sized 
+  normally...maybe use grid for the panel? 
+  */
+
+  height: 2rem;
+  padding: 2rem;
+  margin: 0rem 1rem;
+}
+
+.content-panel h2 {
+  all: unset;
+  font-size: 1.25rem;
+}
+
+.content-panel__section-toggle {
+  all: unset;
+}
+
+.content-panel__section-toggle svg {
+  color: var(--text-primary);
+  width: 1.25rem;
+  height: 1.25rem;
 }
