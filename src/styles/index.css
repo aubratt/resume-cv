@@ -79,10 +79,12 @@ h6 {
   --bg-primary: #0f172a;
   --bg-surface: #1e293b;
   --bg-elevated: #334155;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
   --border: #475569;
   --accent: #38bdf8;
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
+  --danger: #ef4444;
 
   /* Use rem for padding values */
   /* Use class for styling */
@@ -95,6 +97,53 @@ body {
   font-family: "Roboto Flex", sans-serif;
 }
 
+svg {
+  color: var(--text-primary);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+button {
+  all: unset;
+}
+
+.add-new-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--text-secondary);
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  padding-right: 0.75rem;
+}
+
+.add-new-button:hover {
+  background-color: var(--border);
+  border: 1px solid var(--text-primary);
+}
+
+input {
+  all: unset;
+  border: 1px solid var(--text-secondary);
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.5rem;
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+input:hover,
+input:active {
+  background-color: var(--border);
+  border: 1px solid var(--text-primary);
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -103,7 +152,7 @@ body {
   background-color: var(--bg-surface);
   color: var(--text-primary);
   border-bottom: 1px solid var(--border);
-  height: 3.625rem;
+  height: 4rem;
 }
 
 h1 {
@@ -119,52 +168,223 @@ h1 {
 
 .navbar__editor-toggle:hover {
   background-color: var(--bg-elevated);
-  border-radius: 8px;
-}
-
-.navbar__editor-toggle svg {
-  color: var(--text-primary);
-  width: 1.5rem;
-  height: 1.5rem;
+  border-radius: 0.5rem;
 }
 
 /* Content Panel */
 .content-panel {
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--bg-surface);
   border-right: 1px solid var(--border);
   min-width: 200px;
   max-width: 350px;
-  height: calc(100vh - 3.625rem);
+  width: 100%;
+  height: calc(100vh - 4rem);
+  padding: 0.625rem 0.5rem 0.5rem 0.5rem;
   overflow-y: auto;
 }
 
-.content-panel__section {
+/* Panel Section */
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+}
+
+.panel-section.open {
+  background-color: var(--bg-elevated);
+}
+
+.panel-section__header {
+  all: unset;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+  border-radius: 1rem;
   width: 100%;
-
-  /* TODO: Fix this having a height of 0...it looks good visually but the
-  actual height of the element is 0...make it so that the element is sized 
-  normally...maybe use grid for the panel? 
-  */
-
-  height: 2rem;
-  padding: 2rem;
-  margin: 0rem 1rem;
+  height: 4rem;
+  padding: 1rem;
 }
 
-.content-panel h2 {
-  all: unset;
-  font-size: 1.25rem;
+.panel-section__header:hover {
+  background-color: var(--bg-elevated);
 }
 
-.content-panel__section-toggle {
-  all: unset;
+.section-icon {
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
-.content-panel__section-toggle svg {
-  color: var(--text-primary);
-  width: 1.25rem;
-  height: 1.25rem;
+.panel-section__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.875rem;
+  padding: 1rem;
+  padding-top: 0rem;
+}
+
+/* General */
+.general-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-overlay);
+  padding: 298px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-elevated);
+  border-radius: 1rem;
+  max-width: 428px;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.modal__title {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal__close {
+  font-size: 0.875rem;
+}
+
+.modal__close:hover {
+  opacity: 0.5;
+}
+
+.modal__body {
+  font-size: 0.875rem;
+  padding: 0rem 1rem;
+}
+
+.modal__body > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form__footer {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.form__submit {
+  background-color: var(--text-primary);
+  color: var(--bg-elevated);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+}
+
+.form__submit:hover {
+  opacity: 0.9;
+}
+
+/* Saved Entry */
+.saved-entry {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.saved-entry:hover .entry-actions button {
+  opacity: 1;
+}
+
+.entry-info__subtitle {
+  font-size: 0.75rem;
+}
+
+.entry-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.entry-actions button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.entry-actions__edit:hover {
+  background-color: rgba(241, 245, 249, 0.125);
+}
+
+.entry-actions__delete:hover {
+  background-color: rgba(239, 68, 68, 0.25);
+}
+
+.entry-actions svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+/* Confirm Delete */
+.confirm-delete {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.confirm-delete__buttons {
+  align-self: end;
+  display: flex;
+  gap: 1rem;
+}
+
+.confirm-delete__buttons button {
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.confirm-delete__cancel {
+  border: 1px solid var(--text-primary);
+}
+
+.confirm-delete__cancel:hover {
+  background-color: var(--border);
+}
+
+.confirm-delete__delete {
+  background-color: var(--danger);
+  color: var(--bg-primary);
+}
+
+.confirm-delete__delete:hover {
+  opacity: 0.9;
+}
+
+
+/* Hidden */
+.hidden {
+  display: none;
 }

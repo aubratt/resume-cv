@@ -1,25 +1,56 @@
-export default function ContentPanel() {
-  const chevronDown = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-      />
-    </svg>
-  );
+import AddNewButton from "./AddNewButton";
+import GeneralForm from "./GeneralForm";
+import PanelSection from "./PanelSection";
+import SavedEntry from "./SavedEntry";
+import {
+  AcademicCapIcon,
+  PencilSquareIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
+import { IdentificationIcon } from "@heroicons/react/24/outline";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
+export default function ContentPanel({ isOpen, openModal, education }) {
   return (
-    <div className="content-panel">
-      <div className="content-panel__section">
-        <button className="content-panel__section-toggle">{chevronDown}</button>
-        <h2>General</h2>
-      </div>
+    <div className={`content-panel ${isOpen ? "" : "hidden"}`}>
+      <PanelSection title="General" icon={<IdentificationIcon />}>
+        <GeneralForm></GeneralForm>
+      </PanelSection>
+      <PanelSection title="Education" icon={<AcademicCapIcon />}>
+        {education.map((edu) => (
+          <SavedEntry
+            key={edu.id}
+            data={edu}
+            title={edu.school}
+            subtitle={edu.degree}
+            onEdit={(data) =>
+              openModal({
+                type: "edit-education",
+                title: "Edit Education",
+                icon: <PencilSquareIcon />,
+                data,
+              })
+            }
+            onDelete={(data) =>
+              openModal({
+                type: "confirm-delete",
+                title: "Confirm Delete",
+                icon: <TrashIcon />,
+                data,
+              })
+            }
+          />
+        ))}
+        <AddNewButton
+          onClick={() =>
+            openModal({
+              type: "add-education",
+              title: "Add Education",
+              icon: <PlusIcon />,
+            })
+          }
+          buttonText="Add Education"></AddNewButton>
+      </PanelSection>
     </div>
   );
 }
