@@ -4,12 +4,14 @@ import Modal from "./Modal";
 import Navbar from "./Navbar";
 import EducationForm from "./EducationForm";
 import ConfirmDelete from "./ConfirmDelete";
+import ExperienceForm from "./ExperienceForm";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
   const [settingsPanelOpen, setSettingsPanelOpen] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
   const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
 
   const addEducation = (newEducation) => {
     setEducation((prev) => [...prev, newEducation]);
@@ -32,6 +34,11 @@ export default function ResumeBuilder() {
     setActiveModal(null);
   };
 
+  const addExperience = (newExperience) => {
+    setExperience((prev) => [...prev, newExperience]);
+    setActiveModal(null);
+  };
+
   const toggleContentPanel = () => setContentPanelOpen(!contentPanelOpen);
   const toggleSettingsPanel = () => setSettingsPanelOpen(!settingsPanelOpen);
 
@@ -45,7 +52,8 @@ export default function ResumeBuilder() {
       <ContentPanel
         isOpen={contentPanelOpen}
         openModal={setActiveModal}
-        education={education}></ContentPanel>
+        education={education}
+        experience={experience}></ContentPanel>
 
       {activeModal && (
         <Modal
@@ -73,6 +81,15 @@ export default function ResumeBuilder() {
             <ConfirmDelete
               data={activeModal.data}
               onConfirm={() => deleteEducation(activeModal.data)}
+              onCancel={() => setActiveModal(null)}
+            />
+          )}
+
+          {activeModal.type === "add-experience" && (
+            <ExperienceForm
+              mode="add"
+              initialData={activeModal.data}
+              onSubmit={addExperience}
               onCancel={() => setActiveModal(null)}
             />
           )}

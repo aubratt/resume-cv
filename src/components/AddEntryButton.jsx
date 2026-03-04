@@ -1,8 +1,8 @@
 import { PlusIcon } from "@heroicons/react/24/solid";
 
-export default function AddNewButton({ buttonText, onClick }) {
+export default function AddEntryButton({ onClick, buttonText }) {
   return (
-    <button onClick={onClick} className="add-new-button">
+    <button onClick={onClick} className="add-entry-button">
       <PlusIcon />
       <span>{buttonText}</span>
     </button>

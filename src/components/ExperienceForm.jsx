@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import LabelInput from "./LabelInput";
+import LabelTextarea from "./LabelTextarea";
 
-export default function EducationForm({
+export default function ExperienceForm({
   initialData = null,
   mode = "add",
   onSubmit,
@@ -9,12 +10,11 @@ export default function EducationForm({
   const [formData, setFormData] = useState(
     initialData || {
       id: crypto.randomUUID(),
-      school: "",
-      degree: "",
-      field: "",
-      gpa: "",
+      company: "",
+      position: "",
       location: "",
       period: "",
+      description: "",
     },
   );
 
@@ -39,53 +39,42 @@ export default function EducationForm({
   };
 
   return (
-    <div className="education-form">
+    <div className="experience-form">
       <LabelInput
-        id="school"
-        name="school"
-        label="School"
-        placeholder="Trinity University"
-        value={formData.school}
-        onChange={handleChange}></LabelInput>
+        id="company"
+        name="company"
+        label="Company"
+        placeholder="Microsoft"
+        value={formData.company}
+        onChange={handleChange} />
       <LabelInput
-        id="degree"
-        name="degree"
-        label="Degree"
-        placeholder="Bachelor of Science"
-        value={formData.degree}
-        onChange={handleChange}></LabelInput>
+        id="position"
+        name="position"
+        label="Position"
+        placeholder="CEO"
+        value={formData.position}
+        onChange={handleChange} />
       <LabelInput
-        id="field"
-        name="field"
-        label="Field"
-        placeholder="Marketing"
-        value={formData.field}
-        onChange={handleChange}
-      />
-      <LabelInput
-        id="GPA"
-        name="gpa"
-        label="GPA"
-        placeholder="3.0"
-        value={formData.gpa}
-        onChange={handleChange}
-      />
-      <LabelInput
-        id="Location"
+        id="location"
         name="location"
         label="Location"
-        placeholder="San Antonio, Texas"
+        placeholder="Redmond, Washington"
         value={formData.location}
-        onChange={handleChange}
-      />
+        onChange={handleChange} />
       <LabelInput
         id="period"
         name="period"
         label="Period"
-        placeholder="2016-2020"
+        placeholder="Jan 2024--Present"
         value={formData.period}
-        onChange={handleChange}
-      />
+        onChange={handleChange} />
+      <LabelTextarea
+        id="description"
+        name="description"
+        label="Description"
+        placeholder=""
+        value={formData.description} 
+        onChange={handleChange} />
       <div className="form__footer">
         <button type="submit" onClick={handleSubmit} className="form__submit">
           {mode === "add" ? "Add" : "Save"}
