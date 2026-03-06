@@ -192,7 +192,7 @@ h1 {
   padding-top: 0.5rem;
 }
 
-.edit-sections-button {
+.edit-sections__button {
   display: flex;
   gap: 1rem;
   border-radius: 1rem;
@@ -200,7 +200,7 @@ h1 {
   width: 100%;
 }
 
-.edit-sections-button:hover {
+.edit-sections__button:hover {
   background-color: var(--bg-elevated);
 }
 

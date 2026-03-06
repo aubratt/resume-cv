@@ -1,4 +1,4 @@
-export default function ConfirmDelete({ data, onConfirm, onCancel }) {
+export default function ConfirmDelete({ data, onSubmit, onCancel }) {
   return (
     <div className="confirm-delete">
       <p className="confirm-delete__text">
@@ -8,7 +8,7 @@ export default function ConfirmDelete({ data, onConfirm, onCancel }) {
         <button onClick={onCancel} className="confirm-delete__cancel">
           Cancel
         </button>
-        <button onClick={onConfirm} className="confirm-delete__delete">
+        <button onClick={onSubmit} className="confirm-delete__delete">
           Delete
         </button>
       </div>

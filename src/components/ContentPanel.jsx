@@ -4,6 +4,7 @@ import PanelSection from "./PanelSection";
 import SavedEntry from "./SavedEntry";
 import ConfirmDelete from "./ConfirmDelete";
 import { PlusIcon } from "@heroicons/react/24/solid";
+import EditSectionsButton from "./EditSectionsButton";
 
 export default function ContentPanel({
   isOpen,
@@ -87,6 +88,9 @@ export default function ContentPanel({
             </PanelSection>
           );
         })}
+      </div>
+      <div className="edit-sections">
+        <EditSectionsButton buttonText="Edit Sections" />
       </div>
     </div>
   );

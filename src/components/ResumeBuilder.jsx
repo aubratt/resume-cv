@@ -97,6 +97,23 @@ export default function ResumeBuilder() {
     setActiveModal(null);
   };
 
+  const submitHandlers = {
+    add: (formData) =>
+      addEntry(activeModal.props.sectionId, {
+        ...formData,
+        id: crypto.randomUUID(),
+      }),
+    edit: (formData) =>
+      updateEntry(activeModal.props.sectionId, { ...formData }),
+    delete: () =>
+      deleteEntry(
+        activeModal.props.sectionId,
+        activeModal.props.initialData.id,
+      ),
+  };
+
+  const submitHandler = submitHandlers[activeModal?.props.mode];
+
   return (
     <div className="resume-builder">
       <Navbar
@@ -120,41 +137,11 @@ export default function ResumeBuilder() {
           title={activeModal.title}
           icon={activeModal.icon}
           onClose={closeModal}>
-          {activeModal.props.mode === "add" && (
-            <activeModal.component
-              {...activeModal.props}
-              onSubmit={(formData) =>
-                addEntry(activeModal.props.sectionId, {
-                  ...formData,
-                  id: crypto.randomUUID(),
-                })
-              }
-              onCancel={closeModal}
-            />
-          )}
-
-          {activeModal.props.mode === "edit" && (
-            <activeModal.component
-              {...activeModal.props}
-              onSubmit={(formData) =>
-                updateEntry(activeModal.props.sectionId, { ...formData })
-              }
-              onCancel={closeModal}
-            />
-          )}
-
-          {activeModal.props.mode === "delete" && (
-            <ConfirmDelete
-              {...activeModal.props}
-              onConfirm={() =>
-                deleteEntry(
-                  activeModal.props.sectionId,
-                  activeModal.props.initialData.id,
-                )
-              }
-              onCancel={closeModal}
-            />
-          )}
+          <activeModal.component
+            {...activeModal.props}
+            onSubmit={submitHandler}
+            onCancel={closeModal}
+          />
         </Modal>
       )}
     </div>
