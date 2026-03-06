@@ -46,14 +46,16 @@ export default function EducationForm({
         label="School"
         placeholder="Trinity University"
         value={formData.school}
-        onChange={handleChange}></LabelInput>
+        onChange={handleChange}
+      />
       <LabelInput
         id="degree"
         name="degree"
         label="Degree"
         placeholder="Bachelor of Science"
         value={formData.degree}
-        onChange={handleChange}></LabelInput>
+        onChange={handleChange}
+      />
       <LabelInput
         id="field"
         name="field"

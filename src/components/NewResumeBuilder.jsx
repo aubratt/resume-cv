@@ -1,18 +1,14 @@
-import { act, useState } from "react";
 import {
   AcademicCapIcon,
   BriefcaseIcon,
   IdentificationIcon,
   LinkIcon,
 } from "@heroicons/react/24/outline";
-import Navbar from "./Navbar";
 import ContentPanel from "./ContentPanel";
-import Modal from "./Modal";
 import GeneralForm from "./GeneralForm";
 import LinksForm from "./LinksForm";
 import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
-import ConfirmDelete from "./ConfirmDelete";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
@@ -76,7 +72,6 @@ export default function ResumeBuilder() {
       ...prev,
       [sectionId]: [...prev[sectionId], newEntry],
     }));
-    setActiveModal(null);
   };
 
   const updateEntry = (sectionId, updatedEntry) => {
@@ -86,7 +81,6 @@ export default function ResumeBuilder() {
         entry.id === updatedEntry.id ? updatedEntry : entry,
       ),
     }));
-    setActiveModal(null);
   };
 
   const deleteEntry = (sectionId, entryId) => {
@@ -94,7 +88,6 @@ export default function ResumeBuilder() {
       ...prev,
       [sectionId]: prev[sectionId].filter((entry) => entry.id !== entryId),
     }));
-    setActiveModal(null);
   };
 
   return (
@@ -120,41 +113,7 @@ export default function ResumeBuilder() {
           title={activeModal.title}
           icon={activeModal.icon}
           onClose={closeModal}>
-          {activeModal.props.mode === "add" && (
-            <activeModal.component
-              {...activeModal.props}
-              onSubmit={(formData) =>
-                addEntry(activeModal.props.sectionId, {
-                  ...formData,
-                  id: crypto.randomUUID(),
-                })
-              }
-              onCancel={closeModal}
-            />
-          )}
-
-          {activeModal.props.mode === "edit" && (
-            <activeModal.component
-              {...activeModal.props}
-              onSubmit={(formData) =>
-                updateEntry(activeModal.props.sectionId, { ...formData })
-              }
-              onCancel={closeModal}
-            />
-          )}
-
-          {activeModal.props.mode === "delete" && (
-            <ConfirmDelete
-              {...activeModal.props}
-              onConfirm={() =>
-                deleteEntry(
-                  activeModal.props.sectionId,
-                  activeModal.props.initialData.id,
-                )
-              }
-              onCancel={closeModal}
-            />
-          )}
+          <activeModal.component {...activeModal.props} onCancel={closeModal} />
         </Modal>
       )}
     </div>

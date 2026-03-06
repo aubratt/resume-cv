@@ -1,17 +1,15 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-export default function SavedEntry({
-  data,
-  title,
-  subtitle,
-  onEdit,
-  onDelete,
-}) {
+export default function SavedEntry({ data, onEdit, onDelete }) {
   return (
     <div className="saved-entry">
       <div className="entry-info">
-        <p className="entry-info__title">{title}</p>
-        <p className="entry-info__subtitle">{subtitle}</p>
+        <p className="entry-info__title">
+          {data.label || data.school || data.company}
+        </p>
+        <p className="entry-info__subtitle">
+          {data.url || data.degree || data.position}
+        </p>
       </div>
       <div className="entry-actions">
         <button onClick={() => onEdit(data)} className="entry-actions__edit">

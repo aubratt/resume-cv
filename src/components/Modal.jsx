@@ -1,4 +1,4 @@
-export default function Modal({ title, children, onClose, icon }) {
+export default function Modal({ title, icon, onClose, children }) {
   return (
     <div onClick={onClose} className="overlay">
       <div onClick={(e) => e.stopPropagation()} className="modal">
