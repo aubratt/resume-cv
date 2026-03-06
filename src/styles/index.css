@@ -177,13 +177,20 @@ h1 {
   width: 100%;
   height: calc(100vh - 4rem);
   padding: 0.625rem 0.5rem 0.5rem 0.5rem;
-  overflow-y: auto;
+  /* overflow-y: auto; */
+}
+
+.panel-sections-wrapper {
+  flex: 1;
+  min-height: 0;
 }
 
 .panel-sections {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .edit-sections {
@@ -318,6 +325,7 @@ h1 {
   padding: 0rem 1rem;
 }
 
+.modal__body > form,
 .modal__body > div {
   display: flex;
   flex-wrap: wrap;

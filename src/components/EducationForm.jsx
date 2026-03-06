@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import useFormState from "./useFormState";
 import LabelInput from "./LabelInput";
+import FormFooter from "./FormFooter";
 
 export default function EducationForm({
   initialData = null,
   mode = "add",
   onSubmit,
 }) {
-  const [formData, setFormData] = useState(
-    initialData || {
-      id: crypto.randomUUID(),
+  const { formData, handleChange, handleSubmit } = useFormState(
+    initialData,
+    onSubmit,
+    {
       school: "",
       degree: "",
       field: "",
@@ -18,28 +20,8 @@ export default function EducationForm({
     },
   );
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData(initialData);
-    }
-  }, [initialData]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
-
   return (
-    <div className="education-form">
+    <form className="education-form" onSubmit={handleSubmit}>
       <LabelInput
         id="school"
         name="school"
@@ -48,6 +30,7 @@ export default function EducationForm({
         value={formData.school}
         onChange={handleChange}
       />
+
       <LabelInput
         id="degree"
         name="degree"
@@ -56,6 +39,7 @@ export default function EducationForm({
         value={formData.degree}
         onChange={handleChange}
       />
+
       <LabelInput
         id="field"
         name="field"
@@ -64,22 +48,25 @@ export default function EducationForm({
         value={formData.field}
         onChange={handleChange}
       />
+
       <LabelInput
-        id="GPA"
+        id="gpa"
         name="gpa"
         label="GPA"
         placeholder="3.0"
         value={formData.gpa}
         onChange={handleChange}
       />
+
       <LabelInput
-        id="Location"
+        id="location"
         name="location"
         label="Location"
         placeholder="San Antonio, Texas"
         value={formData.location}
         onChange={handleChange}
       />
+
       <LabelInput
         id="period"
         name="period"
@@ -88,11 +75,8 @@ export default function EducationForm({
         value={formData.period}
         onChange={handleChange}
       />
-      <div className="form__footer">
-        <button type="submit" onClick={handleSubmit} className="form__submit">
-          {mode === "add" ? "Add" : "Save"}
-        </button>
-      </div>
-    </div>
+
+      <FormFooter mode={mode} />
+    </form>
   );
 }
