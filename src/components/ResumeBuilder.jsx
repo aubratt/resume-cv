@@ -2,8 +2,14 @@ import { act, useState } from "react";
 import {
   AcademicCapIcon,
   BriefcaseIcon,
+  CheckBadgeIcon,
+  ClipboardDocumentListIcon,
   IdentificationIcon,
+  LanguageIcon,
   LinkIcon,
+  PuzzlePieceIcon,
+  ShieldCheckIcon,
+  TrophyIcon,
 } from "@heroicons/react/24/outline";
 import Navbar from "./Navbar";
 import ContentPanel from "./ContentPanel";
@@ -12,7 +18,11 @@ import GeneralForm from "./GeneralForm";
 import LinksForm from "./LinksForm";
 import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
-import ConfirmDelete from "./ConfirmDelete";
+import ProjectsForm from "./ProjectsForm";
+import SkillsForm from "./SkillsForm";
+import LanguagesForm from "./LanguagesForm";
+import AwardsForm from "./AwardsForm";
+import CertificationsForm from "./CertificationsForm";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
@@ -21,8 +31,13 @@ export default function ResumeBuilder() {
   const [sections, setSections] = useState([
     { id: "general", order: 0 },
     { id: "links", order: 1 },
-    { id: "education", order: 2 },
-    { id: "experience", order: 3 },
+    { id: "experience", order: 2 },
+    { id: "education", order: 3 },
+    { id: "projects", order: 4 },
+    { id: "skills", order: 5 },
+    { id: "languages", order: 6 },
+    { id: "awards", order: 7 },
+    { id: "certifications", order: 8 },
   ]);
   const [general, setGeneral] = useState({
     name: "",
@@ -35,28 +50,66 @@ export default function ResumeBuilder() {
     links: [],
     education: [],
     experience: [],
+    projects: [],
+    skills: [],
+    languages: [],
+    awards: [],
+    certifications: [],
   });
 
   const sectionRegistry = {
     general: {
-      title: "General",
+      sectionTitle: "General",
       icon: <IdentificationIcon />,
       component: GeneralForm,
     },
     links: {
-      title: "Links",
+      sectionTitle: "Links",
+      sectionSingular: "Link",
       icon: <LinkIcon />,
       component: LinksForm,
     },
     education: {
-      title: "Education",
+      sectionTitle: "Education",
+      sectionSingular: "Education",
       icon: <AcademicCapIcon />,
       component: EducationForm,
     },
     experience: {
-      title: "Experience",
+      sectionTitle: "Experience",
+      sectionSingular: "Experience",
       icon: <BriefcaseIcon />,
       component: ExperienceForm,
+    },
+    projects: {
+      sectionTitle: "Projects",
+      sectionSingular: "Project",
+      icon: <ClipboardDocumentListIcon />,
+      component: ProjectsForm,
+    },
+    skills: {
+      sectionTitle: "Skills",
+      sectionSingular: "Skill",
+      icon: <PuzzlePieceIcon />,
+      component: SkillsForm,
+    },
+    languages: {
+      sectionTitle: "Languages",
+      sectionSingular: "Language",
+      icon: <LanguageIcon />,
+      component: LanguagesForm,
+    },
+    awards: {
+      sectionTitle: "Awards",
+      sectionSingular: "Award",
+      icon: <TrophyIcon />,
+      component: AwardsForm,
+    },
+    certifications: {
+      sectionTitle: "Certifications",
+      sectionSingular: "Certification",
+      icon: <CheckBadgeIcon />,
+      component: CertificationsForm,
     },
   };
 
@@ -72,6 +125,8 @@ export default function ResumeBuilder() {
   }
 
   const addEntry = (sectionId, newEntry) => {
+    console.log(newEntry);
+
     setSectionEntries((prev) => ({
       ...prev,
       [sectionId]: [...prev[sectionId], newEntry],

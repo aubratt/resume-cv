@@ -4,7 +4,6 @@ import AddEntryButton from "./AddEntryButton";
 import PanelSection from "./PanelSection";
 import SavedEntry from "./SavedEntry";
 import ConfirmDelete from "./ConfirmDelete";
-import EditSectionsButton from "./EditSectionsButton";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 
@@ -29,7 +28,7 @@ export default function ContentPanel({
                 return (
                   <PanelSection
                     key={section.id}
-                    title={registryItem.title}
+                    title={registryItem.sectionTitle}
                     icon={registryItem.icon}>
                     <GeneralComponent
                       general={general}
@@ -42,17 +41,15 @@ export default function ContentPanel({
               return (
                 <PanelSection
                   key={section.id}
-                  title={registryItem.title}
+                  title={registryItem.sectionTitle}
                   icon={registryItem.icon}>
                   {sectionEntries[section.id].map((entry) => (
                     <SavedEntry
                       key={entry.id}
                       data={entry}
-                      titleField={registryItem.titleField}
-                      subtitleField={registryItem.subtitleField}
                       onEdit={(entry) =>
                         openModal({
-                          title: `Edit ${registryItem.title}`,
+                          title: `Edit ${registryItem.sectionSingular}`,
                           icon: <PencilSquareIcon />,
                           component: registryItem.component,
                           props: {
@@ -79,7 +76,7 @@ export default function ContentPanel({
                   <AddEntryButton
                     onClick={() =>
                       openModal({
-                        title: `Add ${registryItem.title}`,
+                        title: `Add ${registryItem.sectionSingular}`,
                         icon: <PlusIcon />,
                         component: registryItem.component,
                         props: {
@@ -89,17 +86,13 @@ export default function ContentPanel({
                         },
                       })
                     }
-                    buttonText={`Add ${registryItem.title}`}
+                    buttonText={`Add ${registryItem.sectionSingular}`}
                   />
                 </PanelSection>
               );
             })}
           </div>
         </SimpleBar>
-      </div>
-
-      <div className="edit-sections">
-        <EditSectionsButton buttonText="Edit Sections" />
       </div>
     </div>
   );

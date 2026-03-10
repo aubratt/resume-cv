@@ -1,5 +1,6 @@
 import AddEntryButton from "./AddEntryButton";
 import LabelInput from "./LabelInput";
+import LabelTextarea from "./LabelTextarea";
 
 export default function GeneralForm({ general, setGeneral }) {
   const handleChange = (e) => {
@@ -47,6 +48,15 @@ export default function GeneralForm({ general, setGeneral }) {
         label="Location"
         value={general.location}
         placeholder="San Antonio, Texas"
+        onChange={handleChange}
+      />
+      <LabelTextarea
+        id="summary"
+        name="summary"
+        label="Summary"
+        value={general.summary}
+        placeholder="A short overview of your experience, strengths, and career 
+          goals"
         onChange={handleChange}
       />
     </div>

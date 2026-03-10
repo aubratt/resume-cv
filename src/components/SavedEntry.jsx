@@ -5,10 +5,16 @@ export default function SavedEntry({ data, onEdit, onDelete }) {
     <div className="saved-entry">
       <div className="entry-info">
         <p className="entry-info__title">
-          {data.label || data.school || data.company}
+          {data.label ||
+            data.school ||
+            data.company ||
+            data.name ||
+            data.skill ||
+            data.language ||
+            data.award}
         </p>
         <p className="entry-info__subtitle">
-          {data.url || data.degree || data.position}
+          {data.url || data.degree || data.position || data.issuer}
         </p>
       </div>
       <div className="entry-actions">

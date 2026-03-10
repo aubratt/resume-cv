@@ -1,4 +1,11 @@
-export default function LabelTextarea({ id, name, label, value, onChange }) {
+export default function LabelTextarea({
+  id,
+  name,
+  label,
+  value,
+  placeholder,
+  onChange,
+}) {
   return (
     <div className="label-textarea">
       <label htmlFor={id}>{label}</label>
@@ -7,6 +14,7 @@ export default function LabelTextarea({ id, name, label, value, onChange }) {
         name={name}
         rows="5"
         value={value}
+        placeholder={placeholder}
         onChange={onChange}></textarea>
     </div>
   );
