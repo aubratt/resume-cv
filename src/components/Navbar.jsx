@@ -7,6 +7,7 @@ export default function Navbar({
   toggleSettingsPanel,
   contentPanelOpen,
   settingsPanelOpen,
+  onClick
 }) {
   return (
     <div className="navbar">
@@ -15,14 +16,19 @@ export default function Navbar({
         panelOpen={contentPanelOpen}
         panel="content"
         closedIcon={<ChevronDoubleLeftIcon />}
-        openIcon={<ChevronDoubleRightIcon />}></EditorToggleButton>
-      <h1>Resume Builder</h1>
+        openIcon={<ChevronDoubleRightIcon />}
+      />
+      <div>
+        <h1>Resume Builder</h1>
+        <button onClick={onClick}>Print</button>
+      </div>
       <EditorToggleButton
         onClick={toggleSettingsPanel}
         panelOpen={settingsPanelOpen}
         panel="settings"
         closedIcon={<ChevronDoubleRightIcon />}
-        openIcon={<ChevronDoubleLeftIcon />}></EditorToggleButton>
+        openIcon={<ChevronDoubleLeftIcon />}
+      />
     </div>
   );
 }

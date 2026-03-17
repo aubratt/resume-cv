@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@react-pdf/renderer": "^4.3.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-to-print": "^3.3.0",
     "simplebar-react": "^3.3.2"
   },
   "devDependencies": {

@@ -175,8 +175,38 @@ h1 {
   border-radius: 0.5rem;
 }
 
-/* Content Panel */
-.content-panel {
+/* Resume Preview */
+.preview {
+  position: fixed;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 4rem);
+  padding: 2rem;
+}
+
+.preview__scale {
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.preview__page {
+  background-color: white;
+  color: black;
+  width: 8.5in;
+  height: 11in;
+}
+
+/* Content and Settings Panels */
+.content-panel,
+.settings-panel {
+  position: fixed;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -188,7 +218,18 @@ h1 {
   width: 100%;
   height: calc(100vh - 4rem);
   padding: 0.625rem 0.5rem 0.5rem 0.5rem;
-  /* overflow-y: auto; */
+}
+
+.content-panel {
+  left: 0;
+  z-index: 1;
+}
+
+.settings-panel {
+  right: 0;
+  z-index: 1;
+  border-right: none;
+  border-left: 1px solid var(--border);
 }
 
 .panel-sections-wrapper {
@@ -203,6 +244,8 @@ h1 {
   overflow-y: auto;
   flex: 1;
 }
+
+/* -------------------------------------------------------------------------- */
 
 /* Panel Section */
 .panel-section {

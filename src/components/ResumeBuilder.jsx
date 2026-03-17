@@ -1,4 +1,8 @@
-import { act, useState } from "react";
+import { useState } from "react";
+
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
+
 import {
   AcademicCapIcon,
   BriefcaseIcon,
@@ -8,9 +12,9 @@ import {
   LanguageIcon,
   LinkIcon,
   PuzzlePieceIcon,
-  ShieldCheckIcon,
   TrophyIcon,
 } from "@heroicons/react/24/outline";
+
 import Navbar from "./Navbar";
 import ContentPanel from "./ContentPanel";
 import Modal from "./Modal";
@@ -23,6 +27,7 @@ import SkillsForm from "./SkillsForm";
 import LanguagesForm from "./LanguagesForm";
 import AwardsForm from "./AwardsForm";
 import CertificationsForm from "./CertificationsForm";
+import ResumePreview from "./ResumePreview";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
@@ -116,6 +121,11 @@ export default function ResumeBuilder() {
   const toggleContentPanel = () => setContentPanelOpen(!contentPanelOpen);
   const toggleSettingsPanel = () => setSettingsPanelOpen(!settingsPanelOpen);
 
+  let layout = "none";
+  if (contentPanelOpen && settingsPanelOpen) layout = "both";
+  else if (contentPanelOpen) layout = "content";
+  else if (settingsPanelOpen) layout = "settings";
+
   function openModal(config) {
     setActiveModal(config);
   }
@@ -169,13 +179,19 @@ export default function ResumeBuilder() {
 
   const submitHandler = submitHandlers[activeModal?.props.mode];
 
+  const contentRef = useRef();
+  const reactToPrintFn = useReactToPrint({ contentRef });
+
+  console.log(contentRef);
+
   return (
-    <div className="resume-builder">
+    <div className={`resume-builder layout-${layout}`}>
       <Navbar
         toggleContentPanel={toggleContentPanel}
         toggleSettingsPanel={toggleSettingsPanel}
         contentPanelOpen={contentPanelOpen}
         settingsPanelOpen={settingsPanelOpen}
+        onClick={reactToPrintFn}
       />
       <ContentPanel
         isOpen={contentPanelOpen}
@@ -186,6 +202,22 @@ export default function ResumeBuilder() {
         sectionEntries={sectionEntries}
         sectionRegistry={sectionRegistry}
       />
+      <ResumePreview
+        general={general}
+        entries={sectionEntries}
+        printRef={contentRef}
+      />
+      <div className={`settings-panel ${!settingsPanelOpen && "hidden"}`}>
+        <div className="panel-sections-wrapper">
+          <div className="panel-sections">
+            <div className="panel-section">
+              <button className="panel-section__header">
+                <span className="panel-section__title">Layout</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {activeModal && (
         <Modal
