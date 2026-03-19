@@ -11,7 +11,8 @@ export default function SavedEntry({ data, onEdit, onDelete }) {
             data.name ||
             data.skill ||
             data.language ||
-            data.award}
+            data.award ||
+            data.certification}
         </p>
         <p className="entry-info__subtitle">
           {data.url || data.degree || data.position || data.issuer}

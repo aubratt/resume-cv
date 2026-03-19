@@ -27,7 +27,7 @@ import SkillsForm from "./SkillsForm";
 import LanguagesForm from "./LanguagesForm";
 import AwardsForm from "./AwardsForm";
 import CertificationsForm from "./CertificationsForm";
-import ResumePreview from "./ResumePreview";
+import Preview from "./Preview";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
@@ -135,8 +135,6 @@ export default function ResumeBuilder() {
   }
 
   const addEntry = (sectionId, newEntry) => {
-    console.log(newEntry);
-
     setSectionEntries((prev) => ({
       ...prev,
       [sectionId]: [...prev[sectionId], newEntry],
@@ -182,8 +180,6 @@ export default function ResumeBuilder() {
   const contentRef = useRef();
   const reactToPrintFn = useReactToPrint({ contentRef });
 
-  console.log(contentRef);
-
   return (
     <div className={`resume-builder layout-${layout}`}>
       <Navbar
@@ -202,7 +198,7 @@ export default function ResumeBuilder() {
         sectionEntries={sectionEntries}
         sectionRegistry={sectionRegistry}
       />
-      <ResumePreview
+      <Preview
         general={general}
         entries={sectionEntries}
         printRef={contentRef}
