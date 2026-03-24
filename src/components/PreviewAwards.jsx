@@ -1,7 +1,7 @@
-export default function PreviewAwards({ awards }) {
+export default function PreviewAwards({ data }) {
   return (
     <div className="preview__entries-section">
-      {awards.map(award => {
+      {data.map(award => {
         return (
           <div key={award.id}>
             <div className="preview__entry-heading">

@@ -13,6 +13,8 @@ export default function ContentPanel({
   sections,
   general,
   setGeneral,
+  summary,
+  setSummary,
   sectionEntries,
   sectionRegistry,
 }) {
@@ -21,10 +23,11 @@ export default function ContentPanel({
       <div className="panel-sections-wrapper">
         <SimpleBar style={{ maxHeight: "100%", height: "100%" }}>
           <div className="panel-sections">
+            {console.log(sections)}
             {sections.map((section) => {
               const registryItem = sectionRegistry[section.id];
               if (section.id === "general") {
-                const GeneralComponent = registryItem.component;
+                const GeneralComponent = registryItem.formComponent;
                 return (
                   <PanelSection
                     key={section.id}
@@ -33,6 +36,21 @@ export default function ContentPanel({
                     <GeneralComponent
                       general={general}
                       setGeneral={setGeneral}
+                    />
+                  </PanelSection>
+                );
+              }
+
+              if (section.id === "summary") {
+                const SummaryComponent = registryItem.formComponent;
+                return (
+                  <PanelSection
+                    key={section.id}
+                    title={registryItem.sectionTitle}
+                    icon={registryItem.icon}>
+                    <SummaryComponent
+                      summary={summary}
+                      setSummary={setSummary}
                     />
                   </PanelSection>
                 );
@@ -51,7 +69,7 @@ export default function ContentPanel({
                         openModal({
                           title: `Edit ${registryItem.sectionSingular}`,
                           icon: <PencilSquareIcon />,
-                          component: registryItem.component,
+                          component: registryItem.formComponent,
                           props: {
                             mode: "edit",
                             initialData: entry,
@@ -78,7 +96,7 @@ export default function ContentPanel({
                       openModal({
                         title: `Add ${registryItem.sectionSingular}`,
                         icon: <PlusIcon />,
-                        component: registryItem.component,
+                        component: registryItem.formComponent,
                         props: {
                           mode: "add",
                           initialData: null,

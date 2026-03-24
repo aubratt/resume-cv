@@ -1,9 +1,14 @@
 import { LinkIcon } from "@heroicons/react/24/outline";
 
-export default function PreviewProjects({ projects, inputEmpty }) {
+export default function PreviewProjects({ data }) {
+  function inputEmpty(input) {
+    if (input === undefined || input === "") return true;
+    else return false;
+  }
+
   return (
     <div className="preview__entries-section">
-      {projects.map((project) => {
+      {data.map((project) => {
         return (
           <div key={project.id}>
             <div className="preview__entry-heading">

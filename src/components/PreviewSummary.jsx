@@ -1,7 +1,7 @@
-export default function PreviewSummary({ summary }) {
+export default function PreviewSummary({ data }) {
   return (
     <div className="preview__summary">
-      <p>{summary}</p>
+      <p>{data}</p>
     </div>
   );
 }

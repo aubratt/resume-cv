@@ -1,7 +1,7 @@
-export default function PreviewExperience({ experience }) {
+export default function PreviewExperience({ data }) {
   return (
     <div className="preview__entries-section">
-      {experience.map((item) => {
+      {data.map((item) => {
         return (
           <div key={item.id} className="preview__entry">
             <div className="preview__entry-heading">

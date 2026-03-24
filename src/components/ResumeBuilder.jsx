@@ -8,6 +8,7 @@ import {
   BriefcaseIcon,
   CheckBadgeIcon,
   ClipboardDocumentListIcon,
+  DocumentTextIcon,
   IdentificationIcon,
   LanguageIcon,
   LinkIcon,
@@ -28,6 +29,18 @@ import LanguagesForm from "./LanguagesForm";
 import AwardsForm from "./AwardsForm";
 import CertificationsForm from "./CertificationsForm";
 import Preview from "./Preview";
+import PreviewHeader from "./PreviewHeader";
+import PreviewLinks from "./PreviewLinks";
+import PreviewEducation from "./PreviewEducation";
+import PreviewExperience from "./PreviewExperience";
+import PreviewProjects from "./PreviewProjects";
+import PreviewSkills from "./PreviewSkills";
+import PreviewLanguages from "./PreviewLanguages";
+import PreviewAwards from "./PreviewAwards";
+import PreviewCertifications from "./PreviewCertifications";
+import SummaryForm from "./SummaryForm";
+import PreviewSummary from "./PreviewSummary";
+import SettingsPanel from "./SettingsPanel";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
@@ -35,14 +48,15 @@ export default function ResumeBuilder() {
   const [activeModal, setActiveModal] = useState(null);
   const [sections, setSections] = useState([
     { id: "general", order: 0 },
-    { id: "links", order: 1 },
-    { id: "experience", order: 2 },
-    { id: "education", order: 3 },
-    { id: "projects", order: 4 },
-    { id: "skills", order: 5 },
-    { id: "languages", order: 6 },
-    { id: "awards", order: 7 },
-    { id: "certifications", order: 8 },
+    { id: "summary", order: 1 },
+    { id: "links", order: 2 },
+    { id: "experience", order: 3 },
+    { id: "education", order: 4 },
+    { id: "projects", order: 5 },
+    { id: "skills", order: 6 },
+    { id: "languages", order: 7 },
+    { id: "awards", order: 8 },
+    { id: "certifications", order: 9 },
   ]);
   const [general, setGeneral] = useState({
     name: "",
@@ -50,6 +64,9 @@ export default function ResumeBuilder() {
     email: "",
     phone: "",
     location: "",
+  });
+  const [summary, setSummary] = useState({
+    summary: "",
   });
   const [sectionEntries, setSectionEntries] = useState({
     links: [],
@@ -66,55 +83,70 @@ export default function ResumeBuilder() {
     general: {
       sectionTitle: "General",
       icon: <IdentificationIcon />,
-      component: GeneralForm,
+      formComponent: GeneralForm,
+      previewComponent: PreviewHeader,
+    },
+    summary: {
+      sectionTitle: "Summary",
+      icon: <DocumentTextIcon />,
+      formComponent: SummaryForm,
+      previewComponent: PreviewSummary,
     },
     links: {
       sectionTitle: "Links",
       sectionSingular: "Link",
       icon: <LinkIcon />,
-      component: LinksForm,
+      formComponent: LinksForm,
+      previewComponent: PreviewLinks,
     },
     education: {
       sectionTitle: "Education",
       sectionSingular: "Education",
       icon: <AcademicCapIcon />,
-      component: EducationForm,
+      formComponent: EducationForm,
+      previewComponent: PreviewEducation,
     },
     experience: {
       sectionTitle: "Experience",
       sectionSingular: "Experience",
       icon: <BriefcaseIcon />,
-      component: ExperienceForm,
+      formComponent: ExperienceForm,
+      previewComponent: PreviewExperience,
     },
     projects: {
       sectionTitle: "Projects",
       sectionSingular: "Project",
       icon: <ClipboardDocumentListIcon />,
-      component: ProjectsForm,
+      formComponent: ProjectsForm,
+      previewComponent: PreviewProjects,
     },
     skills: {
       sectionTitle: "Skills",
       sectionSingular: "Skill",
       icon: <PuzzlePieceIcon />,
-      component: SkillsForm,
+      formComponent: SkillsForm,
+      previewComponent: PreviewSkills,
     },
     languages: {
       sectionTitle: "Languages",
       sectionSingular: "Language",
       icon: <LanguageIcon />,
-      component: LanguagesForm,
+      formComponent: LanguagesForm,
+      previewComponent: PreviewLanguages,
     },
     awards: {
       sectionTitle: "Awards",
       sectionSingular: "Award",
       icon: <TrophyIcon />,
-      component: AwardsForm,
+      formComponent: AwardsForm,
+      previewComponent: PreviewAwards,
     },
     certifications: {
       sectionTitle: "Certifications",
       sectionSingular: "Certification",
       icon: <CheckBadgeIcon />,
-      component: CertificationsForm,
+      formComponent: CertificationsForm,
+      previewComponent: PreviewCertifications,
     },
   };
 
@@ -195,25 +227,25 @@ export default function ResumeBuilder() {
         sections={sections}
         general={general}
         setGeneral={setGeneral}
+        summary={summary}
+        setSummary={setSummary}
         sectionEntries={sectionEntries}
         sectionRegistry={sectionRegistry}
       />
       <Preview
         general={general}
+        summary={summary}
         entries={sectionEntries}
+        sections={sections}
+        sectionRegistry={sectionRegistry}
         printRef={contentRef}
       />
-      <div className={`settings-panel ${!settingsPanelOpen && "hidden"}`}>
-        <div className="panel-sections-wrapper">
-          <div className="panel-sections">
-            <div className="panel-section">
-              <button className="panel-section__header">
-                <span className="panel-section__title">Layout</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SettingsPanel
+        settingsPanelOpen={settingsPanelOpen}
+        sections={sections}
+        setSections={setSections}
+        sectionRegistry={sectionRegistry}
+      />
 
       {activeModal && (
         <Modal

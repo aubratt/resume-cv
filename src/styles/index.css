@@ -306,8 +306,6 @@ a {
   margin-bottom: 0.15rem;
 }
 
-/* -------------------------------------------------------------------------- */
-
 /* Content and Settings Panels */
 .content-panel,
 .settings-panel {
@@ -606,6 +604,52 @@ a {
 
 .confirm-delete__delete:hover {
   opacity: 0.9;
+}
+
+/* Settings Panel */
+.layout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.layout-form__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.layout-form__section:hover .layout-form__section-arrows button {
+  opacity: 1;
+}
+
+.layout-form__section:hover .layout-form__section-arrows button:disabled {
+  opacity: 0;
+}
+
+.layout-form__section-arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.layout-form__section-arrows button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.layout-form__section-arrows button:hover {
+  background-color: rgba(241, 245, 249, 0.125);
+}
+
+.layout-form__icon {
+  width: 1rem;
+  height: 1rem;
 }
 
 /* Hidden */

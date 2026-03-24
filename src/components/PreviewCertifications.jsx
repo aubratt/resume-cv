@@ -1,7 +1,7 @@
-export default function PreviewCertifications({ certifications }) {
+export default function PreviewCertifications({ data }) {
   return (
     <div className="preview__entries-section">
-      {certifications.map((certification) => {
+      {data.map((certification) => {
         return (
           <div key={certification.id}>
             <div className="preview__entry-heading">

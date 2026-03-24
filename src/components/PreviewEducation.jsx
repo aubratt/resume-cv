@@ -1,7 +1,12 @@
-export default function PreviewEducation({ education, inputEmpty }) {
+export default function PreviewEducation({ data }) {
+  function inputEmpty(input) {
+    if (input === undefined || input === "") return true;
+    else return false;
+  }
+
   return (
     <div className="preview__entries-section">
-      {education.map((item) => {
+      {data.map((item) => {
         return (
           <div key={item.id} className="preview__entry">
             <div className="preview__entry-heading">

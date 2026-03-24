@@ -18,7 +18,14 @@ import PreviewLanguages from "./PreviewLanguages";
 import PreviewAwards from "./PreviewAwards";
 import PreviewCertifications from "./PreviewCertifications";
 
-export default function Preview({ general, entries, printRef }) {
+export default function Preview({
+  general,
+  summary,
+  entries,
+  sections,
+  sectionRegistry,
+  printRef,
+}) {
   const containerRef = useRef(null);
   const [scale, setScale] = useState(1);
 
@@ -61,6 +68,7 @@ export default function Preview({ general, entries, printRef }) {
   }
 
   function arrayEmpty(array) {
+    if (array === undefined) return true;
     return array.length < 1;
   }
 
@@ -76,62 +84,28 @@ export default function Preview({ general, entries, printRef }) {
                 inputEmpty={inputEmpty}
               />
             )}
-            {!inputEmpty(general.summary) && (
-              <PreviewSection heading="Summary">
-                <PreviewSummary summary={general.summary} />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.links) && (
-              <PreviewSection heading="Links">
-                <PreviewLinks
-                  links={entries.links}
-                  icon={<LinkIcon stroke="black" className="preview__icon" />}
-                />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.experience) && (
-              <PreviewSection heading="Experience">
-                <PreviewExperience experience={entries.experience} />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.education) && (
-              <PreviewSection heading="Education">
-                <PreviewEducation
-                  education={entries.education}
-                  inputEmpty={inputEmpty}
-                />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.projects) && (
-              <PreviewSection heading="Projects">
-                <PreviewProjects
-                  projects={entries.projects}
-                  inputEmpty={inputEmpty}
-                />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.skills) && (
-              <PreviewSection heading="Skills">
-                <PreviewSkills skills={entries.skills} />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.languages) && (
-              <PreviewSection heading="Languages">
-                <PreviewLanguages languages={entries.languages} />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.awards) && (
-              <PreviewSection heading="Awards">
-                <PreviewAwards awards={entries.awards} />
-              </PreviewSection>
-            )}
-            {!arrayEmpty(entries.certifications) && (
-              <PreviewSection heading="Certifications">
-                <PreviewCertifications
-                  certifications={entries.certifications}
-                />
-              </PreviewSection>
-            )}
+            {sections
+              .filter((section) => section.id !== "general")
+              .sort((a, b) => a.order - b.order)
+              .map(({ id }) => {
+                const Component = sectionRegistry[id].previewComponent;
+                let empty;
+                id === "summary"
+                  ? (empty = inputEmpty(summary.summary))
+                  : (empty = arrayEmpty(entries[id]));
+
+                if (empty) return null;
+
+                return (
+                  <PreviewSection
+                    key={id}
+                    heading={sectionRegistry[id].sectionTitle}>
+                    <Component
+                      data={id === "summary" ? summary.summary : entries[id]}
+                    />
+                  </PreviewSection>
+                );
+              })}
           </div>
         </div>
       </div>

@@ -50,15 +50,6 @@ export default function GeneralForm({ general, setGeneral }) {
         placeholder="San Antonio, Texas"
         onChange={handleChange}
       />
-      <LabelTextarea
-        id="summary"
-        name="summary"
-        label="Summary"
-        value={general.summary}
-        placeholder="A short overview of your experience, strengths, and career 
-          goals"
-        onChange={handleChange}
-      />
     </div>
   );
 }
