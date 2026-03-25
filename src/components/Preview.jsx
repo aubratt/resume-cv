@@ -1,22 +1,6 @@
-import {
-  EnvelopeIcon,
-  LinkIcon,
-  LinkSlashIcon,
-  MapPinIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import PreviewHeader from "./PreviewHeader";
-import PreviewSummary from "./PreviewSummary";
-import PreviewLinks from "./PreviewLinks";
-import PreviewExperience from "./PreviewExperience";
-import PreviewEducation from "./PreviewEducation";
-import PreviewProjects from "./PreviewProjects";
-import PreviewSkills from "./PreviewSkills";
 import PreviewSection from "./PreviewSection";
-import PreviewLanguages from "./PreviewLanguages";
-import PreviewAwards from "./PreviewAwards";
-import PreviewCertifications from "./PreviewCertifications";
 
 export default function Preview({
   general,

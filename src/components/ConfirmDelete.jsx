@@ -1,4 +1,4 @@
-export default function ConfirmDelete({ data, onSubmit, onCancel }) {
+export default function ConfirmDelete({ onSubmit, onCancel }) {
   return (
     <div className="confirm-delete">
       <p className="confirm-delete__text">

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import TypographyFormOption from "./TypographyFormOption";
 
 export default function TypographyForm({ previewFont, setPreviewFont }) {

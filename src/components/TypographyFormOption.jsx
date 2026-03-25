@@ -3,7 +3,6 @@ export default function TypographyFormOption({
   fontClass,
   previewFont,
   setPreviewFont,
-  activeFont,
 }) {
   const handleClick = () => setPreviewFont(fontClass);
 

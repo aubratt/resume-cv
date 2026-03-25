@@ -1,7 +1,5 @@
-import { useState } from "react";
-
+import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import { useRef } from "react";
 
 import {
   AcademicCapIcon,
@@ -18,11 +16,11 @@ import {
 
 import Navbar from "./Navbar";
 import ContentPanel from "./ContentPanel";
-import Modal from "./Modal";
 import GeneralForm from "./GeneralForm";
+import SummaryForm from "./SummaryForm";
 import LinksForm from "./LinksForm";
-import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
+import EducationForm from "./EducationForm";
 import ProjectsForm from "./ProjectsForm";
 import SkillsForm from "./SkillsForm";
 import LanguagesForm from "./LanguagesForm";
@@ -30,6 +28,7 @@ import AwardsForm from "./AwardsForm";
 import CertificationsForm from "./CertificationsForm";
 import Preview from "./Preview";
 import PreviewHeader from "./PreviewHeader";
+import PreviewSummary from "./PreviewSummary";
 import PreviewLinks from "./PreviewLinks";
 import PreviewEducation from "./PreviewEducation";
 import PreviewExperience from "./PreviewExperience";
@@ -38,9 +37,8 @@ import PreviewSkills from "./PreviewSkills";
 import PreviewLanguages from "./PreviewLanguages";
 import PreviewAwards from "./PreviewAwards";
 import PreviewCertifications from "./PreviewCertifications";
-import SummaryForm from "./SummaryForm";
-import PreviewSummary from "./PreviewSummary";
 import SettingsPanel from "./SettingsPanel";
+import Modal from "./Modal";
 
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
@@ -70,6 +68,7 @@ export default function ResumeBuilder() {
   const [summary, setSummary] = useState({
     summary: "",
   });
+  const [notes, setNotes] = useState("");
   const [sectionEntries, setSectionEntries] = useState({
     links: [],
     education: [],
@@ -252,6 +251,8 @@ export default function ResumeBuilder() {
         setPreviewFont={setPreviewFont}
         previewColor={previewColor}
         setPreviewColor={setPreviewColor}
+        notes={notes}
+        setNotes={setNotes}
         printResume={reactToPrintFn}
       />
 

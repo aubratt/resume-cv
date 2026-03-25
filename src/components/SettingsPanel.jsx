@@ -1,5 +1,4 @@
 import {
-  ArrowDownTrayIcon,
   ItalicIcon,
   PencilIcon,
   RectangleGroupIcon,
@@ -10,7 +9,7 @@ import LayoutForm from "./LayoutForm";
 import TypographyForm from "./TypographyForm";
 import ColorForm from "./ColorForm";
 import NotesForm from "./NotesForm";
-import AddEntryButton from "./AddEntryButton";
+import DownloadButton from "./DownloadButton";
 
 export default function SettingsPanel({
   settingsPanelOpen,
@@ -21,6 +20,8 @@ export default function SettingsPanel({
   setPreviewFont,
   previewColor,
   setPreviewColor,
+  notes,
+  setNotes,
   printResume,
 }) {
   return (
@@ -47,12 +48,9 @@ export default function SettingsPanel({
             />
           </PanelSection>
           <PanelSection title="Notes" icon={<PencilIcon />}>
-            <NotesForm />
+            <NotesForm notes={notes} setNotes={setNotes} />
           </PanelSection>
-          <button onClick={printResume} className="panel-section__header">
-            {<ArrowDownTrayIcon />}
-            <span className="panel-section__title">Download</span>
-          </button>
+          <DownloadButton printResume={printResume} />
         </div>
       </div>
     </div>

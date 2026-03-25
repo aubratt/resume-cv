@@ -1,6 +1,8 @@
 import EditorToggleButton from "./EditorToggleButton";
-import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
-import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleRightIcon,
+} from "@heroicons/react/24/solid";
 
 export default function Navbar({
   toggleContentPanel,

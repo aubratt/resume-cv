@@ -1,6 +1,4 @@
-import AddEntryButton from "./AddEntryButton";
 import LabelInput from "./LabelInput";
-import LabelTextarea from "./LabelTextarea";
 
 export default function GeneralForm({ general, setGeneral }) {
   const handleChange = (e) => {

@@ -104,48 +104,53 @@ h6 {
 }
 
 @font-face {
-    font-family: 'Garamond';
-    src: url('./src/assets/Garamond.woff2') format('woff2'),
-        url('./src/assets/Garamond.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Garamond";
+  src:
+    url("./src/assets/Garamond.woff2") format("woff2"),
+    url("./src/assets/Garamond.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Georgia';
-    src: url('./src/assets/Georgia.woff2') format('woff2'),
-        url('./src/assets/Georgia.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Georgia";
+  src:
+    url("./src/assets/Georgia.woff2") format("woff2"),
+    url("./src/assets/Georgia.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Helvetica';
-    src: url('./src/assets/Helvetica.woff2') format('woff2'),
-        url('./src/asssets/Helvetica.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Helvetica";
+  src:
+    url("./src/assets/Helvetica.woff2") format("woff2"),
+    url("./src/asssets/Helvetica.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('./src/assets/Lato-Regular.woff2') format('woff2'),
-        url('./src/assets/Lato-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Lato";
+  src:
+    url("./src/assets/Lato-Regular.woff2") format("woff2"),
+    url("./src/assets/Lato-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Trebuchet MS';
-    src: url('./src/assets/TrebuchetMS.woff2') format('woff2'),
-        url('./src/assets/TrebuchetMS.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Trebuchet MS";
+  src:
+    url("./src/assets/TrebuchetMS.woff2") format("woff2"),
+    url("./src/assets/TrebuchetMS.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -747,6 +752,10 @@ a {
 
 .active-font {
   background-color: var(--bg-elevated);
+}
+
+.active-font,
+.active-color {
   border: 1px solid var(--text-primary);
 }
 
@@ -808,7 +817,7 @@ a {
 }
 
 .trebuchet-ms {
-  font-family: 'Trebuchet MS';
+  font-family: "Trebuchet MS";
 }
 
 /* Color Form */

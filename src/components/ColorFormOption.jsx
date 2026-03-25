@@ -8,7 +8,7 @@ export default function ColorFormOption({
   return (
     <button
       onClick={handleClick}
-      className={`color-form-option`}
+      className={`color-form-option ${previewColor === color ? "active-color" : ""}`}
       style={{ backgroundColor: color }}></button>
   );
 }
