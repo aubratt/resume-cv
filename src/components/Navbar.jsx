@@ -7,7 +7,6 @@ export default function Navbar({
   toggleSettingsPanel,
   contentPanelOpen,
   settingsPanelOpen,
-  onClick
 }) {
   return (
     <div className="navbar">
@@ -20,7 +19,6 @@ export default function Navbar({
       />
       <div>
         <h1>Resume Builder</h1>
-        <button onClick={onClick}>Print</button>
       </div>
       <EditorToggleButton
         onClick={toggleSettingsPanel}

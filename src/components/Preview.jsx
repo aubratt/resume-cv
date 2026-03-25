@@ -25,6 +25,7 @@ export default function Preview({
   sections,
   sectionRegistry,
   previewFont,
+  previewColor,
   printRef,
 }) {
   const containerRef = useRef(null);
@@ -83,6 +84,7 @@ export default function Preview({
                 general={general}
                 objectEmpty={objectEmpty}
                 inputEmpty={inputEmpty}
+                previewColor={previewColor}
               />
             )}
             {sections
@@ -100,7 +102,8 @@ export default function Preview({
                 return (
                   <PreviewSection
                     key={id}
-                    heading={sectionRegistry[id].sectionTitle}>
+                    heading={sectionRegistry[id].sectionTitle}
+                    previewColor={previewColor}>
                     <Component
                       data={id === "summary" ? summary.summary : entries[id]}
                     />

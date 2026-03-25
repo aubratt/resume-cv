@@ -2,8 +2,6 @@ import { useState } from "react";
 import TypographyFormOption from "./TypographyFormOption";
 
 export default function TypographyForm({ previewFont, setPreviewFont }) {
-  const [activeFont, setActiveFont] = useState("arial");
-
   return (
     <div className="typography-form">
       <TypographyFormOption

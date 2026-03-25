@@ -46,6 +46,7 @@ export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
   const [settingsPanelOpen, setSettingsPanelOpen] = useState(true);
   const [previewFont, setPreviewFont] = useState("arial");
+  const [previewColor, setPreviewColor] = useState("black");
   const [activeModal, setActiveModal] = useState(null);
   const [sections, setSections] = useState([
     { id: "general", order: 0 },
@@ -220,7 +221,6 @@ export default function ResumeBuilder() {
         toggleSettingsPanel={toggleSettingsPanel}
         contentPanelOpen={contentPanelOpen}
         settingsPanelOpen={settingsPanelOpen}
-        onClick={reactToPrintFn}
       />
       <ContentPanel
         isOpen={contentPanelOpen}
@@ -240,6 +240,7 @@ export default function ResumeBuilder() {
         sections={sections}
         sectionRegistry={sectionRegistry}
         previewFont={previewFont}
+        previewColor={previewColor}
         printRef={contentRef}
       />
       <SettingsPanel
@@ -249,6 +250,9 @@ export default function ResumeBuilder() {
         sectionRegistry={sectionRegistry}
         previewFont={previewFont}
         setPreviewFont={setPreviewFont}
+        previewColor={previewColor}
+        setPreviewColor={setPreviewColor}
+        printResume={reactToPrintFn}
       />
 
       {activeModal && (

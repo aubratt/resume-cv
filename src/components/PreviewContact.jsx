@@ -5,24 +5,30 @@ import {
 } from "@heroicons/react/24/outline";
 import PreviewContactEntry from "./PreviewContactEntry";
 
-export default function PreviewContact({ email, phone, location, inputEmpty }) {
+export default function PreviewContact({
+  email,
+  phone,
+  location,
+  inputEmpty,
+  previewColor,
+}) {
   return (
     <div className="preview__contact">
       {!inputEmpty(email) && (
         <PreviewContactEntry
-          icon={<EnvelopeIcon stroke="black" className="preview__icon" />}
+          icon={<EnvelopeIcon stroke={previewColor} className="preview__icon" />}
           text={email}
         />
       )}
       {!inputEmpty(phone) && (
         <PreviewContactEntry
-          icon={<PhoneIcon stroke="black" className="preview__icon" />}
+          icon={<PhoneIcon stroke={previewColor} className="preview__icon" />}
           text={phone}
         />
       )}
       {!inputEmpty(location) && (
         <PreviewContactEntry
-          icon={<MapPinIcon stroke="black" className="preview__icon" />}
+          icon={<MapPinIcon stroke={previewColor} className="preview__icon" />}
           text={location}
         />
       )}

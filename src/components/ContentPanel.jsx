@@ -23,7 +23,6 @@ export default function ContentPanel({
       <div className="panel-sections-wrapper">
         <SimpleBar style={{ maxHeight: "100%", height: "100%" }}>
           <div className="panel-sections">
-            {console.log(sections)}
             {sections.map((section) => {
               const registryItem = sectionRegistry[section.id];
               if (section.id === "general") {

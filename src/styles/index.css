@@ -811,6 +811,18 @@ a {
   font-family: 'Trebuchet MS';
 }
 
+/* Color Form */
+.color-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.color-form-option {
+  aspect-ratio: 1 / 1;
+  border-radius: 0.5rem;
+}
+
 /* Hidden */
 .hidden {
   display: none;
