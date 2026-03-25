@@ -75,6 +75,79 @@ h6 {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Book Antiqua";
+  src:
+    url("./src/assets/BookAntiqua.woff2") format("woff2"),
+    url("./src/assets/BookAntiqua.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./src/assets/Calibri.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cambria";
+  src:
+    url("./src/assets/Cambria.woff2") format("woff2"),
+    url("./src/assets/Cambria.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'Garamond';
+    src: url('./src/assets/Garamond.woff2') format('woff2'),
+        url('./src/assets/Garamond.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Georgia';
+    src: url('./src/assets/Georgia.woff2') format('woff2'),
+        url('./src/assets/Georgia.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('./src/assets/Helvetica.woff2') format('woff2'),
+        url('./src/asssets/Helvetica.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./src/assets/Lato-Regular.woff2') format('woff2'),
+        url('./src/assets/Lato-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trebuchet MS';
+    src: url('./src/assets/TrebuchetMS.woff2') format('woff2'),
+        url('./src/assets/TrebuchetMS.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
   --bg-primary: #0f172a;
   --bg-surface: #1e293b;
@@ -606,7 +679,7 @@ a {
   opacity: 0.9;
 }
 
-/* Settings Panel */
+/* Layout Form */
 .layout-form {
   display: flex;
   flex-direction: column;
@@ -620,7 +693,7 @@ a {
   gap: 0.5rem;
   background-color: var(--border);
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .layout-form__section:hover .layout-form__section-arrows button {
@@ -650,6 +723,92 @@ a {
 .layout-form__icon {
   width: 1rem;
   height: 1rem;
+}
+
+/* Typography Form */
+.typography-form {
+  cursor: default;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.typography-form__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--border);
+  border-radius: 0.5rem;
+}
+
+.typography-form__option:hover {
+  background-color: var(--text-secondary);
+}
+
+.active-font {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--text-primary);
+}
+
+.active-font:hover {
+  background-color: var(--bg-elevated);
+}
+
+.typography-form__option-char-sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typography-form__option-char-sample p {
+  font-size: 2rem;
+  line-height: 1;
+  padding-top: 1rem;
+}
+
+.typography-form__option-font-family {
+  padding: 0.5rem 0 1rem 0;
+}
+
+/* Font Families */
+.arial {
+  font-family: Arial;
+}
+
+.book-antiqua {
+  font-family: "Book Antiqua";
+}
+
+.calibri {
+  font-family: "Calibri";
+}
+
+.cambria {
+  font-family: "Cambria";
+}
+
+.garamond {
+  font-family: "Garamond";
+}
+
+.georgia {
+  font-family: "Georgia";
+}
+
+.helvetica {
+  font-family: "Helvetica";
+}
+
+.lato {
+  font-family: "Lato";
+}
+
+.times-new-roman {
+  font-family: "Times New Roman";
+}
+
+.trebuchet-ms {
+  font-family: 'Trebuchet MS';
 }
 
 /* Hidden */

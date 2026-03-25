@@ -24,6 +24,7 @@ export default function Preview({
   entries,
   sections,
   sectionRegistry,
+  previewFont,
   printRef,
 }) {
   const containerRef = useRef(null);
@@ -76,7 +77,7 @@ export default function Preview({
     <div className="preview" ref={containerRef}>
       <div className="preview__scale" style={{ transform: `scale(${scale})` }}>
         <div className="preview__page" ref={printRef}>
-          <div className="preview__content">
+          <div className={`preview__content ${previewFont}`}>
             {!objectEmpty(general) && (
               <PreviewHeader
                 general={general}

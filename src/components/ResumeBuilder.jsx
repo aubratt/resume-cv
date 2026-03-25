@@ -45,6 +45,7 @@ import SettingsPanel from "./SettingsPanel";
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
   const [settingsPanelOpen, setSettingsPanelOpen] = useState(true);
+  const [previewFont, setPreviewFont] = useState("arial");
   const [activeModal, setActiveModal] = useState(null);
   const [sections, setSections] = useState([
     { id: "general", order: 0 },
@@ -238,6 +239,7 @@ export default function ResumeBuilder() {
         entries={sectionEntries}
         sections={sections}
         sectionRegistry={sectionRegistry}
+        previewFont={previewFont}
         printRef={contentRef}
       />
       <SettingsPanel
@@ -245,6 +247,8 @@ export default function ResumeBuilder() {
         sections={sections}
         setSections={setSections}
         sectionRegistry={sectionRegistry}
+        previewFont={previewFont}
+        setPreviewFont={setPreviewFont}
       />
 
       {activeModal && (
