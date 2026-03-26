@@ -1,9 +1,9 @@
-import useFormState from "./useFormState";
-import LabelInput from "./LabelInput";
+import useFormState from "../../Form/useFormState";
+import LabelInput from "../../Form/LabelInput";
 import FormFooter from "./FormFooter";
-import LabelTextarea from "./LabelTextarea";
+import LabelTextarea from "../../Form/LabelTextarea";
 
-export default function CertificationsForm({
+export default function AwardsForm({
   initialData = null,
   mode = "add",
   onSubmit,
@@ -12,7 +12,7 @@ export default function CertificationsForm({
     initialData,
     onSubmit,
     {
-      certification: "",
+      award: "",
       issuer: "",
       date: "",
       description: "",
@@ -20,13 +20,13 @@ export default function CertificationsForm({
   );
 
   return (
-    <form className="certifications-form" onSubmit={handleSubmit}>
+    <form className="awards-form" onSubmit={handleSubmit}>
       <LabelInput
-        id="certification"
-        name="certification"
-        label="Certification"
-        placeholder="Certification Name"
-        value={formData.certification}
+        id="award"
+        name="award"
+        label="Award"
+        placeholder="Award Name"
+        value={formData.award}
         onChange={handleChange}
       />
       <LabelInput
@@ -49,8 +49,8 @@ export default function CertificationsForm({
         id="description"
         name="description"
         label="Description"
-        placeholder="Describe the certification"
         value={formData.description}
+        placeholder="Info about the award"
         onChange={handleChange}
       />
       <div className="form__footer-wrapper">

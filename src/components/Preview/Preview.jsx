@@ -62,7 +62,7 @@ export default function Preview({
     <div className="preview" ref={containerRef}>
       <div className="preview__scale" style={{ transform: `scale(${scale})` }}>
         <div className="preview__page" ref={printRef}>
-          <div className={`preview__content ${previewFont}`}>
+          <div className="preview__content" style={{ fontFamily: previewFont }}>
             {!objectEmpty(general) && (
               <PreviewHeader
                 general={general}

@@ -1,5 +1,5 @@
-import useFormState from "./useFormState";
-import LabelInput from "./LabelInput";
+import useFormState from "../../Form/useFormState";
+import LabelInput from "../../Form/LabelInput";
 import FormFooter from "./FormFooter";
 
 export default function LinksForm({

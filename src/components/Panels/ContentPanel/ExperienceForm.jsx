@@ -1,7 +1,7 @@
-import useFormState from "./useFormState";
-import LabelInput from "./LabelInput";
-import LabelTextarea from "./LabelTextarea";
+import useFormState from "../../Form/useFormState";
+import LabelInput from "../../Form/LabelInput";
 import FormFooter from "./FormFooter";
+import LabelTextarea from "../../Form/LabelTextarea";
 
 export default function ExperienceForm({
   initialData = null,

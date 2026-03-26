@@ -1,4 +1,4 @@
-import LabelTextarea from "./LabelTextarea";
+import LabelTextarea from "../../Form/LabelTextarea";
 
 export default function SummaryForm({ summary, setSummary }) {
   const handleChange = (e) => {

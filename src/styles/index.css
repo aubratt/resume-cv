@@ -779,47 +779,6 @@ a {
   padding: 0.5rem 0 1rem 0;
 }
 
-/* Font Families */
-.arial {
-  font-family: Arial;
-}
-
-.book-antiqua {
-  font-family: "Book Antiqua";
-}
-
-.calibri {
-  font-family: "Calibri";
-}
-
-.cambria {
-  font-family: "Cambria";
-}
-
-.garamond {
-  font-family: "Garamond";
-}
-
-.georgia {
-  font-family: "Georgia";
-}
-
-.helvetica {
-  font-family: "Helvetica";
-}
-
-.lato {
-  font-family: "Lato";
-}
-
-.times-new-roman {
-  font-family: "Times New Roman";
-}
-
-.trebuchet-ms {
-  font-family: "Trebuchet MS";
-}
-
 /* Color Form */
 .color-form {
   display: grid;

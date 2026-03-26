@@ -1,6 +1,32 @@
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 
+import Navbar from "./Navbar/Navbar";
+import ContentPanel from "./Panels/ContentPanel/ContentPanel";
+import GeneralForm from "./Panels/ContentPanel/GeneralForm";
+import SummaryForm from "./Panels/ContentPanel/SummaryForm";
+import LinksForm from "./Panels/ContentPanel/LinksForm";
+import ExperienceForm from "./Panels/ContentPanel/ExperienceForm";
+import EducationForm from "./Panels/ContentPanel/EducationForm";
+import ProjectsForm from "./Panels/ContentPanel/ProjectsForm";
+import SkillsForm from "./Panels/ContentPanel/SkillsForm";
+import LanguagesForm from "./Panels/ContentPanel/LanguagesForm";
+import AwardsForm from "./Panels/ContentPanel/AwardsForm";
+import CertificationsForm from "./Panels/ContentPanel/CertificationsForm";
+import Preview from "./Preview/Preview";
+import PreviewHeader from "./Preview/PreviewHeader";
+import PreviewSummary from "./Preview/PreviewSummary";
+import PreviewLinks from "./Preview/PreviewLinks";
+import PreviewEducation from "./Preview/PreviewEducation";
+import PreviewExperience from "./Preview/PreviewExperience";
+import PreviewProjects from "./Preview/PreviewProjects";
+import PreviewSkills from "./Preview/PreviewSkills";
+import PreviewLanguages from "./Preview/PreviewLanguages";
+import PreviewAwards from "./Preview/PreviewAwards";
+import PreviewCertifications from "./Preview/PreviewCertifications";
+import SettingsPanel from "./Panels/SettingsPanel/SettingsPanel";
+import Modal from "./Modal/Modal";
+
 import {
   AcademicCapIcon,
   BriefcaseIcon,
@@ -14,36 +40,10 @@ import {
   TrophyIcon,
 } from "@heroicons/react/24/outline";
 
-import Navbar from "./Navbar";
-import ContentPanel from "./ContentPanel";
-import GeneralForm from "./GeneralForm";
-import SummaryForm from "./SummaryForm";
-import LinksForm from "./LinksForm";
-import ExperienceForm from "./ExperienceForm";
-import EducationForm from "./EducationForm";
-import ProjectsForm from "./ProjectsForm";
-import SkillsForm from "./SkillsForm";
-import LanguagesForm from "./LanguagesForm";
-import AwardsForm from "./AwardsForm";
-import CertificationsForm from "./CertificationsForm";
-import Preview from "./Preview";
-import PreviewHeader from "./PreviewHeader";
-import PreviewSummary from "./PreviewSummary";
-import PreviewLinks from "./PreviewLinks";
-import PreviewEducation from "./PreviewEducation";
-import PreviewExperience from "./PreviewExperience";
-import PreviewProjects from "./PreviewProjects";
-import PreviewSkills from "./PreviewSkills";
-import PreviewLanguages from "./PreviewLanguages";
-import PreviewAwards from "./PreviewAwards";
-import PreviewCertifications from "./PreviewCertifications";
-import SettingsPanel from "./SettingsPanel";
-import Modal from "./Modal";
-
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
   const [settingsPanelOpen, setSettingsPanelOpen] = useState(true);
-  const [previewFont, setPreviewFont] = useState("arial");
+  const [previewFont, setPreviewFont] = useState("Arial");
   const [previewColor, setPreviewColor] = useState("black");
   const [activeModal, setActiveModal] = useState(null);
   const [sections, setSections] = useState([
@@ -68,7 +68,6 @@ export default function ResumeBuilder() {
   const [summary, setSummary] = useState({
     summary: "",
   });
-  const [notes, setNotes] = useState("");
   const [sectionEntries, setSectionEntries] = useState({
     links: [],
     education: [],
@@ -79,6 +78,7 @@ export default function ResumeBuilder() {
     awards: [],
     certifications: [],
   });
+  const [notes, setNotes] = useState("");
 
   const sectionRegistry = {
     general: {
@@ -154,11 +154,6 @@ export default function ResumeBuilder() {
   const toggleContentPanel = () => setContentPanelOpen(!contentPanelOpen);
   const toggleSettingsPanel = () => setSettingsPanelOpen(!settingsPanelOpen);
 
-  let layout = "none";
-  if (contentPanelOpen && settingsPanelOpen) layout = "both";
-  else if (contentPanelOpen) layout = "content";
-  else if (settingsPanelOpen) layout = "settings";
-
   function openModal(config) {
     setActiveModal(config);
   }
@@ -214,7 +209,7 @@ export default function ResumeBuilder() {
   const reactToPrintFn = useReactToPrint({ contentRef });
 
   return (
-    <div className={`resume-builder layout-${layout}`}>
+    <div className="resume-builder">
       <Navbar
         toggleContentPanel={toggleContentPanel}
         toggleSettingsPanel={toggleSettingsPanel}

@@ -1,5 +1,5 @@
-import useFormState from "./useFormState";
-import InputButton from "./InputButton";
+import useFormState from "../../Form/useFormState";
+import InputButton from "../../Form/InputButton";
 
 export default function SkillsForm({
   initialData = null,

@@ -4,7 +4,7 @@ import {
   RectangleGroupIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
-import PanelSection from "./PanelSection";
+import PanelSection from "../PanelSection";
 import LayoutForm from "./LayoutForm";
 import TypographyForm from "./TypographyForm";
 import ColorForm from "./ColorForm";

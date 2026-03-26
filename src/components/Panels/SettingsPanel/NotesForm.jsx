@@ -1,4 +1,4 @@
-import LabelTextarea from "./LabelTextarea";
+import LabelTextarea from "../../Form/LabelTextarea";
 
 export default function NotesForm({ notes, setNotes }) {
   const handleChange = (e) => {

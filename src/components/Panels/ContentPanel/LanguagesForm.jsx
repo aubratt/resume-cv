@@ -1,5 +1,5 @@
-import InputButton from "./InputButton";
-import useFormState from "./useFormState";
+import useFormState from "../../Form/useFormState";
+import InputButton from "../../Form/InputButton";
 
 export default function LanguagesForm({
   initialData = null,

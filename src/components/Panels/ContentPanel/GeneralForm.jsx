@@ -1,4 +1,4 @@
-import LabelInput from "./LabelInput";
+import LabelInput from "../../Form/LabelInput";
 
 export default function GeneralForm({ general, setGeneral }) {
   const handleChange = (e) => {

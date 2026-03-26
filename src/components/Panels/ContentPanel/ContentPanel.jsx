@@ -1,11 +1,13 @@
-import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { PlusIcon } from "@heroicons/react/24/solid";
 import AddEntryButton from "./AddEntryButton";
-import PanelSection from "./PanelSection";
+import PanelSection from "../PanelSection";
 import SavedEntry from "./SavedEntry";
-import ConfirmDelete from "./ConfirmDelete";
+import ConfirmDelete from "../../Modal/ConfirmDelete";
+
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
+
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 export default function ContentPanel({
   isOpen,
