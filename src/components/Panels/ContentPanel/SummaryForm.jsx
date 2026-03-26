@@ -12,7 +12,7 @@ export default function SummaryForm({ summary, setSummary }) {
         id="summary"
         name="summary"
         label="Summary"
-        value={summary.summary}
+        value={summary}
         placeholder="A short overview of your experience, strengths, and career goals"
         onChange={handleChange}
       />

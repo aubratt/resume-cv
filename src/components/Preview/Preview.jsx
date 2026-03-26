@@ -15,7 +15,6 @@ export default function Preview({
   const containerRef = useRef(null);
   const [scale, setScale] = useState(1);
 
-  const PAGE_WIDTH = 816;
   const PAGE_HEIGHT = 1056;
 
   useEffect(() => {
@@ -78,7 +77,7 @@ export default function Preview({
                 const Component = sectionRegistry[id].previewComponent;
                 let empty;
                 id === "summary"
-                  ? (empty = inputEmpty(summary.summary))
+                  ? (empty = inputEmpty(summary))
                   : (empty = arrayEmpty(entries[id]));
 
                 if (empty) return null;

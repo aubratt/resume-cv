@@ -10,7 +10,10 @@ export default function PreviewHeader({
   return (
     <div className="preview__header">
       {!objectEmpty({ name: general.name, headline: general.headline }) && (
-        <PreviewTitle name={general.name} headline={general.headline} />
+        <PreviewTitle
+          name={general.name}
+          headline={general.headline}
+        />
       )}
       {!objectEmpty({
         email: general.email,

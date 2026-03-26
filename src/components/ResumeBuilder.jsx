@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 
+import { useLocalStorage } from "@uidotdev/usehooks";
+
 import Navbar from "./Navbar/Navbar";
 import ContentPanel from "./Panels/ContentPanel/ContentPanel";
 import GeneralForm from "./Panels/ContentPanel/GeneralForm";
@@ -43,10 +45,13 @@ import {
 export default function ResumeBuilder() {
   const [contentPanelOpen, setContentPanelOpen] = useState(true);
   const [settingsPanelOpen, setSettingsPanelOpen] = useState(true);
-  const [previewFont, setPreviewFont] = useState("Arial");
-  const [previewColor, setPreviewColor] = useState("black");
+  const [previewFont, setPreviewFont] = useLocalStorage("previewFont", "Arial");
+  const [previewColor, setPreviewColor] = useLocalStorage(
+    "previewColor",
+    "black",
+  );
   const [activeModal, setActiveModal] = useState(null);
-  const [sections, setSections] = useState([
+  const [sections, setSections] = useLocalStorage("sections", [
     { id: "general", order: 0 },
     { id: "summary", order: 1 },
     { id: "links", order: 2 },
@@ -58,27 +63,30 @@ export default function ResumeBuilder() {
     { id: "awards", order: 8 },
     { id: "certifications", order: 9 },
   ]);
-  const [general, setGeneral] = useState({
+  const [general, setGeneral] = useLocalStorage("general", {
     name: "",
     headline: "",
     email: "",
     phone: "",
     location: "",
   });
-  const [summary, setSummary] = useState({
+  const [summary, setSummary] = useLocalStorage("summary", {
     summary: "",
   });
-  const [sectionEntries, setSectionEntries] = useState({
-    links: [],
-    education: [],
-    experience: [],
-    projects: [],
-    skills: [],
-    languages: [],
-    awards: [],
-    certifications: [],
-  });
-  const [notes, setNotes] = useState("");
+  const [sectionEntries, setSectionEntries] = useLocalStorage(
+    "sectionEntries",
+    {
+      links: [],
+      education: [],
+      experience: [],
+      projects: [],
+      skills: [],
+      languages: [],
+      awards: [],
+      certifications: [],
+    },
+  );
+  const [notes, setNotes] = useLocalStorage("notes", "");
 
   const sectionRegistry = {
     general: {

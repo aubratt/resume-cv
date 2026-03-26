@@ -27,6 +27,7 @@ export default function ContentPanel({
           <div className="panel-sections">
             {sections.map((section) => {
               const registryItem = sectionRegistry[section.id];
+
               if (section.id === "general") {
                 const GeneralComponent = registryItem.formComponent;
                 return (
@@ -50,7 +51,7 @@ export default function ContentPanel({
                     title={registryItem.sectionTitle}
                     icon={registryItem.icon}>
                     <SummaryComponent
-                      summary={summary}
+                      summary={summary.summary}
                       setSummary={setSummary}
                     />
                   </PanelSection>

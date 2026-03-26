@@ -3,7 +3,7 @@ import LabelInput from "../../Form/LabelInput";
 export default function GeneralForm({ general, setGeneral }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setGeneral((prev) => ({ ...prev, [name]: value }));
+    setGeneral((prev) => ({ ...prev, [name]: value })); 
   };
 
   return (
