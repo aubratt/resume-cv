@@ -68,8 +68,8 @@ h6 {
 @font-face {
   font-family: "Roboto Flex";
   src:
-    url("./src/assets/RobotoFlex-Regular.woff2") format("woff2"),
-    url("./src/assets/RobotoFlex-Regular.woff") format("woff");
+    url("../assets/RobotoFlex-Regular.woff2") format("woff2"),
+    url("../assets/RobotoFlex-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -78,8 +78,8 @@ h6 {
 @font-face {
   font-family: "Book Antiqua";
   src:
-    url("./src/assets/BookAntiqua.woff2") format("woff2"),
-    url("./src/assets/BookAntiqua.woff") format("woff");
+    url("../assets/BookAntiqua.woff2") format("woff2"),
+    url("../assets/BookAntiqua.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -87,7 +87,7 @@ h6 {
 
 @font-face {
   font-family: "Calibri";
-  src: url("./src/assets/Calibri.woff") format("woff");
+  src: url("../assets/Calibri.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -96,8 +96,8 @@ h6 {
 @font-face {
   font-family: "Cambria";
   src:
-    url("./src/assets/Cambria.woff2") format("woff2"),
-    url("./src/assets/Cambria.woff") format("woff");
+    url("../assets/Cambria.woff2") format("woff2"),
+    url("../assets/Cambria.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -106,8 +106,8 @@ h6 {
 @font-face {
   font-family: "Garamond";
   src:
-    url("./src/assets/Garamond.woff2") format("woff2"),
-    url("./src/assets/Garamond.woff") format("woff");
+    url("../assets/Garamond.woff2") format("woff2"),
+    url("../assets/Garamond.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -116,8 +116,8 @@ h6 {
 @font-face {
   font-family: "Georgia";
   src:
-    url("./src/assets/Georgia.woff2") format("woff2"),
-    url("./src/assets/Georgia.woff") format("woff");
+    url("../assets/Georgia.woff2") format("woff2"),
+    url("../assets/Georgia.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -126,7 +126,7 @@ h6 {
 @font-face {
   font-family: "Helvetica";
   src:
-    url("./src/assets/Helvetica.woff2") format("woff2"),
+    url("../assets/Helvetica.woff2") format("woff2"),
     url("./src/asssets/Helvetica.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -136,8 +136,8 @@ h6 {
 @font-face {
   font-family: "Lato";
   src:
-    url("./src/assets/Lato-Regular.woff2") format("woff2"),
-    url("./src/assets/Lato-Regular.woff") format("woff");
+    url("../assets/Lato-Regular.woff2") format("woff2"),
+    url("../assets/Lato-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -146,8 +146,8 @@ h6 {
 @font-face {
   font-family: "Trebuchet MS";
   src:
-    url("./src/assets/TrebuchetMS.woff2") format("woff2"),
-    url("./src/assets/TrebuchetMS.woff") format("woff");
+    url("../assets/TrebuchetMS.woff2") format("woff2"),
+    url("../assets/TrebuchetMS.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
