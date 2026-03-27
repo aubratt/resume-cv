@@ -19,7 +19,7 @@ export default function LanguagesForm({
       <InputButton
         id="language"
         name="language"
-        placeholder="Language"
+        placeholder="Spanish"
         value={formData.language}
         onChange={handleChange}
         mode={mode}

@@ -25,7 +25,7 @@ export default function AwardsForm({
         id="award"
         name="award"
         label="Award"
-        placeholder="Award Name"
+        placeholder="Microservices Innovation Award"
         value={formData.award}
         onChange={handleChange}
       />
@@ -33,7 +33,7 @@ export default function AwardsForm({
         id="issuer"
         name="issuer"
         label="Issuer"
-        placeholder="Issuer Name"
+        placeholder="Tech Solutions Inc."
         value={formData.issuer}
         onChange={handleChange}
       />
@@ -50,7 +50,7 @@ export default function AwardsForm({
         name="description"
         label="Description"
         value={formData.description}
-        placeholder="Info about the award"
+        placeholder="Awarded for leading the successful migration of a legacy monolithic application to a microservices architecture, improving system scalability, performance, and deployment efficiency while coordinating a team of developers."
         onChange={handleChange}
       />
       <div className="form__footer-wrapper">

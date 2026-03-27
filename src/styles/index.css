@@ -210,6 +210,7 @@ textarea:active {
 .label-textarea {
   display: flex;
   flex-direction: column;
+  white-space: pre-line;
 }
 
 .label-textarea {
@@ -348,6 +349,7 @@ h1 {
 }
 
 .preview__section-content {
+  white-space: pre-line;
   width: 100%;
 }
 

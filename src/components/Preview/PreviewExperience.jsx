@@ -12,7 +12,7 @@ export default function PreviewExperience({ data }) {
               <p>{item.position}</p>
               <p>{item.location}</p>
             </div>
-            <div>
+            <div className="preview__entry-description">
               <p>{item.description}</p>
             </div>
           </div>

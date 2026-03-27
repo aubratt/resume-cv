@@ -25,7 +25,7 @@ export default function CertificationsForm({
         id="certification"
         name="certification"
         label="Certification"
-        placeholder="Certification Name"
+        placeholder="AWS Certified Developer Associate"
         value={formData.certification}
         onChange={handleChange}
       />
@@ -33,7 +33,7 @@ export default function CertificationsForm({
         id="issuer"
         name="issuer"
         label="Issuer"
-        placeholder="Issuer Name"
+        placeholder="Amazon Web Services"
         value={formData.issuer}
         onChange={handleChange}
       />
@@ -49,7 +49,7 @@ export default function CertificationsForm({
         id="description"
         name="description"
         label="Description"
-        placeholder="Describe the certification"
+        placeholder="Certification demonstrating proficiency in developing, deploying, and maintaining scalable applications on AWS, including experience with cloud services, deployment automation, and application security."
         value={formData.description}
         onChange={handleChange}
       />

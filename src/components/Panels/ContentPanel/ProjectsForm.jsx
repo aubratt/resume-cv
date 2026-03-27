@@ -25,7 +25,7 @@ export default function ProjectsForm({
         id="name"
         name="name"
         label="Name"
-        placeholder="Resume Builder"
+        placeholder="E-Commerce Dashboard"
         value={formData.name}
         onChange={handleChange}
       />
@@ -41,7 +41,7 @@ export default function ProjectsForm({
         id="website"
         name="website"
         label="Website"
-        placeholder="https://aubratt.github.io/resume-cv/"
+        placeholder="https://github.com/username/e-commerce-dashboard"
         value={formData.website}
         onChange={handleChange}
       />
@@ -49,8 +49,8 @@ export default function ProjectsForm({
         id="description"
         name="description"
         label="Description"
-        placeholder="Describe the project, including its purpose, your role,
-        key results, etc."
+        placeholder="• Developed a full-stack analytics dashboard that allowed e-commerce businesses to track sales, user behavior, and conversion metrics in real time.
+          • Built the front-end using React and Chart.js to create responsive data visualizations and interactive reports."
         value={formData.description}
         onChange={handleChange}
       />

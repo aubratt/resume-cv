@@ -13,7 +13,7 @@ export default function GeneralForm({ general, setGeneral }) {
         name="name"
         label="Full Name"
         value={general.name}
-        placeholder="Austin Bratton"
+        placeholder="Thor Odinson"
         onChange={handleChange}
       />
       <LabelInput
@@ -21,7 +21,7 @@ export default function GeneralForm({ general, setGeneral }) {
         name="headline"
         label="Headline"
         value={general.headline}
-        placeholder="Web Developer"
+        placeholder="Full Stack Software Developer"
         onChange={handleChange}
       />
       <LabelInput
@@ -29,7 +29,7 @@ export default function GeneralForm({ general, setGeneral }) {
         name="email"
         label="Email"
         value={general.email}
-        placeholder="ausbratton@gmail.com"
+        placeholder="thorodinson@email.com"
         onChange={handleChange}
       />
       <LabelInput
@@ -45,7 +45,7 @@ export default function GeneralForm({ general, setGeneral }) {
         name="location"
         label="Location"
         value={general.location}
-        placeholder="San Antonio, Texas"
+        placeholder="Los Angeles, California"
         onChange={handleChange}
       />
     </div>

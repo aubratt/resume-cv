@@ -12,7 +12,7 @@ export default function NotesForm({ notes, setNotes }) {
         name="notes"
         label="Notes"
         value={notes}
-        placeholder="Personal notes, i.e. which companies you sent this resume to"
+        placeholder="Application sent to CloudTech, ByteWorks, and Apex Systems for full-stack roles."
         onChange={handleChange}
       />
     </div>

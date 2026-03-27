@@ -19,7 +19,7 @@ export default function SkillsForm({
       <InputButton
         id="skill"
         name="skill"
-        placeholder="Communication"
+        placeholder="React"
         value={formData.skill}
         onChange={handleChange}
         mode={mode}

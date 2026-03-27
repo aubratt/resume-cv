@@ -26,7 +26,7 @@ export default function EducationForm({
         id="school"
         name="school"
         label="School"
-        placeholder="Trinity University"
+        placeholder="Stanford University"
         value={formData.school}
         onChange={handleChange}
       />
@@ -44,7 +44,7 @@ export default function EducationForm({
         id="field"
         name="field"
         label="Field"
-        placeholder="Marketing"
+        placeholder="Computer Science"
         value={formData.field}
         onChange={handleChange}
       />
@@ -53,7 +53,7 @@ export default function EducationForm({
         id="gpa"
         name="gpa"
         label="GPA"
-        placeholder="3.0"
+        placeholder="3.75"
         value={formData.gpa}
         onChange={handleChange}
       />
@@ -62,7 +62,7 @@ export default function EducationForm({
         id="location"
         name="location"
         label="Location"
-        placeholder="San Antonio, Texas"
+        placeholder="Stanford, California"
         value={formData.location}
         onChange={handleChange}
       />
@@ -71,7 +71,7 @@ export default function EducationForm({
         id="period"
         name="period"
         label="Period"
-        placeholder="2016-2020"
+        placeholder="2016 - 2020"
         value={formData.period}
         onChange={handleChange}
       />

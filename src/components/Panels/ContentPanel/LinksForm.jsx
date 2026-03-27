@@ -30,7 +30,7 @@ export default function LinksForm({
         id="url"
         name="url"
         label="URL"
-        placeholder="https://github.com/aubratt"
+        placeholder="https://github.com/username"
         value={formData.url}
         onChange={handleChange}
       />

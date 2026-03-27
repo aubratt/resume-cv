@@ -77,7 +77,7 @@ export default function Preview({
                 const Component = sectionRegistry[id].previewComponent;
                 let empty;
                 id === "summary"
-                  ? (empty = inputEmpty(summary))
+                  ? (empty = inputEmpty(summary.summary))
                   : (empty = arrayEmpty(entries[id]));
 
                 if (empty) return null;

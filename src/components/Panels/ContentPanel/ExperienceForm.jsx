@@ -26,7 +26,7 @@ export default function ExperienceForm({
         id="company"
         name="company"
         label="Company"
-        placeholder="Microsoft"
+        placeholder="Tech Solutions Inc."
         value={formData.company}
         onChange={handleChange}
       />
@@ -34,7 +34,7 @@ export default function ExperienceForm({
         id="position"
         name="position"
         label="Position"
-        placeholder="CEO"
+        placeholder="Senior Full Stack Developer"
         value={formData.position}
         onChange={handleChange}
       />
@@ -42,7 +42,7 @@ export default function ExperienceForm({
         id="location"
         name="location"
         label="Location"
-        placeholder="Redmond, Washington"
+        placeholder="Los Angeles, California"
         value={formData.location}
         onChange={handleChange}
       />
@@ -50,7 +50,7 @@ export default function ExperienceForm({
         id="period"
         name="period"
         label="Period"
-        placeholder="Jan 2024--Present"
+        placeholder="Jan 2024 - Present"
         value={formData.period}
         onChange={handleChange}
       />
@@ -58,7 +58,9 @@ export default function ExperienceForm({
         id="description"
         name="description"
         label="Description"
-        placeholder=""
+        placeholder="• Developed and optimized RESTful APIs, reducing response times by 40% 
+        • Implemented an authentication system using OAuth2, enhancing security for over 500,000 users
+        • Led a team of five developers to migrate a monolithic architecture to microservices, improving system scalability"
         value={formData.description}
         onChange={handleChange}
       />

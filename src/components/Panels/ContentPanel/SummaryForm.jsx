@@ -13,7 +13,7 @@ export default function SummaryForm({ summary, setSummary }) {
         name="summary"
         label="Summary"
         value={summary}
-        placeholder="A short overview of your experience, strengths, and career goals"
+        placeholder="Innovative Software Developer with six years of experience designing and optimizing web applications. Skilled in JavaScript, Node.js, React, and Python."
         onChange={handleChange}
       />
     </div>
